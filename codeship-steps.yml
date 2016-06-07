@@ -1,13 +1,17 @@
-- service: deployexample
+- name: build
+  service: test
   command: true
-- service: deployexample
+- name: push to gcr.io
+  service: test
   type: push
   image_name: gcr.io/codeship-production/google-deployment-example
   registry: https://gcr.io
   dockercfg_service: gcr_dockercfg
-- service: googleclouddeployment
+- name: test deploy script
+  service: gcd
   command: /deploy/test/deploy_to_google.sh
-- service: googleclouddeployment
+- name: push to Docker Hub
+  service: gcd
   tag: master
   type: push
   image_name: codeship/google-cloud-deployment

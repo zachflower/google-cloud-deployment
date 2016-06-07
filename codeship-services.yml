@@ -1,4 +1,4 @@
-googleclouddeployment:
+gcd:
   build:
     image: codeship/google-cloud-deployment
     dockerfile: Dockerfile
@@ -6,7 +6,7 @@ googleclouddeployment:
   add_docker: true
   volumes:
     - ./:/deploy
-deployexample:
+test:
   build:
     path: test
     dockerfile_path: Dockerfile.example
